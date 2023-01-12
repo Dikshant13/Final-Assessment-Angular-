@@ -1,0 +1,15 @@
+.navbar-brand{
+    font-size: 25px;
+    color: green;
+    font-weight: bold;
+}
+.navbar-brand a:hover{
+    color: red;
+}
+.navbar {
+    background-color: green;
+}
+
+#but{
+    margin-left: 350px;
+}
