@@ -29,6 +29,9 @@
                     <th scope="col">RATING</th>
                     <th scope="col">QUANTITY</th>
                     <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    
                   </tr>
                 </thead>
                 <tbody>
@@ -41,7 +44,9 @@
                         <td>{{product.category}}</td>
                         <td><app-star-icon [rating]='product.rating' (ratingClicked)="onRatingClicked($event)"></app-star-icon></td>
                         <td><input type="number" min=0 value="0" [(ngModel)]="product.qty"/></td>
-                        <td><button class="btn btn-primary">ADD</button></td>
+                        <td><button class="btn btn-primary" (click)="addToCart(product)">ADD</button></td>
+                        <td><button class="btn btn-warning" (click)="(product)">EDIT</button></td>
+                        <td><button class="btn btn-danger" (click)="(product)">DELETE</button></td>
                       </tr>
                   
                 </tbody>

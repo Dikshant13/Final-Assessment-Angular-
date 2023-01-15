@@ -1,12 +1,14 @@
 import { Component, OnInit, OnDestroy, Output, EventEmitter } from "@angular/core";
 import { Router } from "@angular/router";
-import { Store } from "@ngrx/store";
+import { Store, USER_RUNTIME_CHECKS } from "@ngrx/store";
 import { Subscription, Observable } from "rxjs";
 import { ProductService } from "../shared/productService";
 import { getProducts, getError, getCurrentProduct } from "../state/products/product.selector";
 import * as ProductActions from '../state/products/product.actions'
 import { IProduct } from "./product";
 import { State } from "../state/products/product.state";
+import { CartService } from "../shared/cartService";
+import { state } from "@angular/animations";
 
 @Component({
   selector: 'products-list',
@@ -34,7 +36,7 @@ dataReceived=this.productService.getProducts();
 obsProducts$!:Observable<IProduct[]>;
 @Output() OnProductSelection:EventEmitter<IProduct>=new EventEmitter<IProduct>();
 
-  constructor(private productService:ProductService,
+  constructor(private productService:ProductService, private cartService: CartService,
     private router:Router,private store:Store<State>){ }
 
 
@@ -113,4 +115,13 @@ this.store.dispatch(ProductActions.setCurrentProduct({currentProductId:product.i
     this.productService.getProductById(id).subscribe(resp=>this.prod=resp);
     return this.prod;
   }
+
+
+
+  addToCart(product: IProduct):void{
+    console.log( product,'--inside--add--to--cart');
+    this.cartService.addToCart(product);
+    console.log('--added---to---dispatch')
+   }
+
 }

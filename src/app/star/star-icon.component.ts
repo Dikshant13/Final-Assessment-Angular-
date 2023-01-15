@@ -13,20 +13,21 @@ export class StarIconComponent implements OnInit,OnChanges{
   @Output() ratingClicked:EventEmitter<string> =new EventEmitter<string>();
 
   ngOnChanges(changes: SimpleChanges): void {
-    //console.log(this.rating);
-    //console.log(this.cropWidth);
+    console.log(this.rating);
+    console.log(this.cropWidth);
     this.cropWidth=this.rating* 75/5;
-    //console.log(this.cropWidth);
+  
   }
   ngOnInit(): void {
-    
   }
 
   onClick():void{
 
     let msg =  document.querySelector('#p1')?.textContent ?? 'hello';
     this.ratingClicked.emit(msg);
+    
   }
+
 
 
 }

@@ -20,6 +20,7 @@ import { CarouselComponent } from './carousel/carousel.component';
 // import { ProductListComponent } from './products/product-list.component';
 // import { StarIconComponent } from './star/star-icon.component';
 // import { ProductsComponent } from './products/products.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { EffectsModule } from '@ngrx/effects';
