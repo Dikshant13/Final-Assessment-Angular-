@@ -1,3 +1,30 @@
 input[type=number]{
     width: 50px;
 }
+
+
+
+
+/* --------------- */
+p {
+    font-family: Lato;
+  }
+  
+  .alert  {
+    position:fixed;
+    top: 0;
+    right: 200px;
+    border:1px solid rgb(6, 6, 6);
+    border-radius: 10px;
+    padding: 1.2rem;
+    background:white;
+    color: #f65656;
+    box-shadow: 0 5px 10px -5px rgb(251, 48, 48,.8);
+    transition:  all 0.2s ease-in-out;
+    opacity: 0;
+  }
+  
+  .visible {
+    opacity: 1;
+    transform: translateY(1.25rem);
+  }

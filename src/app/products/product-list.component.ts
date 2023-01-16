@@ -124,4 +124,15 @@ this.store.dispatch(ProductActions.setCurrentProduct({currentProductId:product.i
     console.log('--added---to---dispatch')
    }
 
+
+  //  code for alert message when we click on add to cart button 
+   public isVisible: boolean = false;
+
+  showAlert() : void {
+    if (this.isVisible) { 
+      return;
+    } 
+    this.isVisible = true;
+    setTimeout(()=> this.isVisible = false,2500)
+  }
 }

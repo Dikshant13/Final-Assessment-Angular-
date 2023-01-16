@@ -1,30 +1,79 @@
+<html>
+    <title>Cart</title>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.js"></script>
+        
+    </head>
+    <body style=color:black>
+<div class="container">
 <div class="card text-center">
-    <div class="card-header">
+    <!-- <div class="card-header">
+        <button class="btn btn-primary" (click)="calculate()">CHECKOUT</button>
+    </div> -->
+
+
+    <!-- cart total doing its working -->
+    <div *ngFor="let cart of cartList" class="card-header">
+        <p> CART TOTAL:{{ cart.price }} </p>
+      </div>
+      <br>
+      
+      <p style="font-weight: bold;background-color:lightcyan;height: 30px;"> Total Price - {{ total }} </p>
+      <div class="card-header">
         <button class="btn btn-primary" (click)="calculate()">CHECKOUT</button>
     </div>
+<!-- 
     <div class="card-header">
       CART TOTAL: {{total}}
-    </div>
+    </div> -->
     <div class="card-body">
-      <!-- <table class="table" *ngIf="prot.length">-->
-        <table class="table" *ngIf="true">
-    <thead class="thead-dark">
+      <table class="table  table-hover table-warning" *ngIf="prot.length">
+        <!-- <table class="table table-light" *ngIf="true"> -->
+    <thead class="thead-dark" style="background-color: lightcyan;">
       <tr>
         <th scope="col">NAME</th>
         <th scope="col">IMAGE</th>
-        <th scope="col">QUANTITY</th>
+        <!-- <th scope="col">QUANTITY</th> -->
+        <th scope="col">PRICE</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let pr of prot">
         <td *ngIf="pr.name">{{pr.name}}</td>
-        <td *ngIf="pr.image"><img [src]="pr.image" width="100px" height="80px"/></td>
-        <td *ngIf="pr.qty">{{pr.qty}}</td>
+        <td *ngIf="pr.image"><img [src]="pr.image" width="100px" height="100px"/></td>
+        <!-- <td *ngIf="pr.qty">{{pr.qty}}</td> -->
+        <td *ngIf="pr.price">{{pr.price}}</td>
+        
+                
       </tr>
    
     </tbody>
       </table>  
     </div>
 
+
+    <script>
+        (function(){
+        
+        var cart = angular.module('cart', []);
+        
+        cart.controller('cartCtrl', ['$scope', function($scope){
+          $scope.cartItems = [{},{},{},{}];
+        }]);
+        
+        cart.controller('cartItemCtrl', ['$scope', function($scope){
+        
+          $scope.$watchCollection('item', function(){
+            $scope.total = $scope.item.qty * $scope.item.prize;
+          });
+        }]);
+        
+        }());
+          </script>
+<!-- anmation  -->
+
 </div>
 
+</div>
+</body>
+</html>

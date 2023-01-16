@@ -21,7 +21,7 @@ import { CarouselComponent } from './carousel/carousel.component';
 // import { StarIconComponent } from './star/star-icon.component';
 // import { ProductsComponent } from './products/products.component';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effect';
@@ -31,6 +31,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InMemoryEventDbService } from './shared/inmemoryevevntdb.service';
 import { TransformDataPipe } from './transform-data.pipe';
 // import { StarIconComponent } from './star/star-icon.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 
 
 @NgModule({
@@ -45,6 +47,7 @@ import { TransformDataPipe } from './transform-data.pipe';
     CartComponent,
     CarouselComponent,
     // ProductListComponent,
+    
   
     
   
@@ -59,10 +62,11 @@ import { TransformDataPipe } from './transform-data.pipe';
     HttpClientModule,
     MaterialModule,
     InMemoryWebApiModule,
+    BrowserAnimationsModule ,
     // BrowserAnimationsModule,
     ReactiveFormsModule,
     //EffectsModule.forRoot([AppEffects]),
-StoreModule.forRoot({}),
+    StoreModule.forRoot({}),
     //have to create AppEffects
     EffectsModule.forRoot([AppEffects]),
 

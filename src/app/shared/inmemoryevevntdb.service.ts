@@ -15,16 +15,16 @@ export class InMemoryEventDbService implements InMemoryDbService{
         
 
         const products:IProduct[]=[{
-            "id": 100,
+            "id": 1,
             "name": "Product1",
             "price": 2000,
-            "image": "../../assets/jeans.jpg",
+            "image": "../../assets/mobile.jpeg",
             "category": Category.jeans,
             "qty": 0,
             "rating": 4
         
           },{
-            "id": 101,
+            "id": 2,
             "name": "Product2",
             "price": 1000,
             "image": "../../assets/grocery.jpg",
@@ -33,7 +33,7 @@ export class InMemoryEventDbService implements InMemoryDbService{
             "rating": 3.5
         
           },{
-            "id": 102,
+            "id": 3,
             "name": "Product3",
             "price": 3000,
             "image": "../../assets/shirt.jpg",
@@ -42,7 +42,7 @@ export class InMemoryEventDbService implements InMemoryDbService{
             "rating": 5
         
           },{
-            "id": 103,
+            "id": 4,
             "name": "Product4",
             "price": 1500,
             "image": "../../assets/top.jpg",
@@ -51,7 +51,7 @@ export class InMemoryEventDbService implements InMemoryDbService{
             "rating": 3
         
           },{
-            "id": 104,
+            "id": 5,
             "name": "Product5",
             "price": 1000,
             "image": "../../assets/food.jpg",
@@ -60,7 +60,7 @@ export class InMemoryEventDbService implements InMemoryDbService{
             "rating": 3.5
         
           },{
-            "id": 105,
+            "id": 6,
             "name": "Product6",
             "price": 2000,
             "image": "../../assets/food.jpg",
@@ -69,7 +69,7 @@ export class InMemoryEventDbService implements InMemoryDbService{
             "rating": 3.5
         
           },{
-            "id": 106,
+            "id": 7,
             "name": "Product7",
             "price": 3000,
             "image": "../../assets/shirt.jpg",
@@ -78,8 +78,28 @@ export class InMemoryEventDbService implements InMemoryDbService{
             "rating": 5
         
           },{
-            "id": 107,
+            "id": 8,
             "name": "Product8",
+            "price": 4000,
+            "image": "../../assets/jeans.jpg",
+            "category": Category.jeans,
+            "qty": 0,
+            "rating": 4
+        
+          },
+          {
+            "id": 9,
+            "name": "Product9",
+            "price": 4000,
+            "image": "../../assets/jeans.jpg",
+            "category": Category.jeans,
+            "qty": 0,
+            "rating": 4
+        
+          },
+          {
+            "id": 10,
+            "name": "Product10",
             "price": 4000,
             "image": "../../assets/jeans.jpg",
             "category": Category.jeans,

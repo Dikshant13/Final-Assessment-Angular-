@@ -103,7 +103,7 @@ newProduct():IProduct{
       name:'',
       category:Category.shirt,
       price:0,
-      image:'\\assets\\images\\tomato.jpg',
+      image:'\\assets\\shirt.jpg',
       rating:0,
       qty:0
 
