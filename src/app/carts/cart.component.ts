@@ -2,7 +2,7 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { IProduct } from '../products/product';
 import { CartService } from '../shared/cartService';
-
+import { Router } from '@angular/router';
 
 // animation import 
 import { state, style, transition, animate, trigger } from '@angular/animations';
@@ -28,6 +28,12 @@ export class CartComponent implements OnInit,OnChanges{
     private cartService: CartService
   ) { }
 
+
+  // for  continue shopping 
+  
+
+
+
   ngOnInit(): void {
   //  console.log(this.prot, '----inside--cart')
    this.calculateTotal();
@@ -46,15 +52,11 @@ export class CartComponent implements OnInit,OnChanges{
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log(this.total);
-    // console.log(this.prot.price);
-    //console.log(this.prot.quantity);
+  
     this.prot=this.prot;
     this.total+=(this.pr.price*this.pr.quantity);
     console.log(this.total);
     
-    
-    
-    console.log(this.total);
   }
 
   @Input() prot:IProduct[]=this.cartService.getItems();
@@ -66,6 +68,8 @@ export class CartComponent implements OnInit,OnChanges{
   }
 
 
+  
+
 
   // animations 
   
@@ -73,4 +77,5 @@ export class CartComponent implements OnInit,OnChanges{
 }
 
   
+
 

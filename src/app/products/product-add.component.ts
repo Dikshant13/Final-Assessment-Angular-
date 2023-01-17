@@ -63,7 +63,8 @@ export class ProductAddComponent implements OnInit ,OnDestroy {
     this.addProduct = this.formBuilder.group({
       id: [],
       name: ['',[ Validators.required,Validators.minLength(3),Validators.maxLength(10)]],
-      category:[Category.shirt,[Validators.required]],
+      // code:['',[Validators.required]],
+      category:[Category.clothing,[Validators.required]],
       price:['',[Validators.required]],
       image:['',[Validators.required]],
       rating:[3,[Validators.required]]

@@ -16,93 +16,103 @@ export class InMemoryEventDbService implements InMemoryDbService{
 
         const products:IProduct[]=[{
             "id": 1,
-            "name": "Product1",
-            "price": 2000,
-            "image": "../../assets/mobile.jpeg",
-            "category": Category.jeans,
+            "name": "Mobile",
+            "price": 25000,
+            
+            "image": "../../assets/mobile1.jpeg",
+            "category": Category.electronic,
             "qty": 0,
             "rating": 4
         
           },{
             "id": 2,
-            "name": "Product2",
-            "price": 1000,
-            "image": "../../assets/grocery.jpg",
-            "category": Category.grocery,
+            "name": "Pizza",
+            "price": 180,
+        
+            "image": "../../assets/pizza.jpeg",
+            "category": Category.food,
             "qty": 0,
             "rating": 3.5
         
           },{
             "id": 3,
-            "name": "Product3",
-            "price": 3000,
-            "image": "../../assets/shirt.jpg",
-            "category": Category.shirt,
+            "name": "Jeans",
+            "price": 1800,
+        
+            "image": "../../assets/jeans.jpg",
+            "category": Category.clothing,
             "qty": 0,
             "rating": 5
         
           },{
             "id": 4,
-            "name": "Product4",
-            "price": 1500,
-            "image": "../../assets/top.jpg",
-            "category": Category.top,
+            "name": "Laptop",
+            "price": 55000,
+            
+            "image": "../../assets/laptop2.jpg",
+            "category": Category.electronic,
             "qty": 0,
             "rating": 3
         
           },{
             "id": 5,
-            "name": "Product5",
-            "price": 1000,
-            "image": "../../assets/food.jpg",
-            "category": Category.food,
+            "name": "Jacket",
+            "price": 2200,
+        
+            "image": "../../assets/jacket.jpg",
+            "category": Category.clothing,
             "qty": 0,
             "rating": 3.5
         
           },{
             "id": 6,
-            "name": "Product6",
-            "price": 2000,
-            "image": "../../assets/food.jpg",
-            "category": Category.food,
+            "name": "Lg Tv",
+            "price": 45000,
+        
+            "image": "../../assets/lgtv.jpeg",
+            "category": Category.electronic,
             "qty": 0,
             "rating": 3.5
         
           },{
             "id": 7,
-            "name": "Product7",
-            "price": 3000,
+            "name": "Shirt",
+            "price": 2800,
+        
             "image": "../../assets/shirt.jpg",
-            "category": Category.shirt,
+            "category": Category.clothing,
             "qty": 0,
             "rating": 5
         
           },{
             "id": 8,
-            "name": "Product8",
-            "price": 4000,
-            "image": "../../assets/jeans.jpg",
-            "category": Category.jeans,
+            "name": "Burger",
+            "price": 120,
+            
+            "image": "../../assets/burger.jpeg",
+            "category": Category.food,
             "qty": 0,
             "rating": 4
         
           },
           {
             "id": 9,
-            "name": "Product9",
-            "price": 4000,
-            "image": "../../assets/jeans.jpg",
-            "category": Category.jeans,
+            "name": "T-shirt",
+            "price": 800,
+            
+            "image": "../../assets/tshirt.jpg",
+            "category": Category.clothing,
             "qty": 0,
             "rating": 4
         
           },
           {
             "id": 10,
-            "name": "Product10",
-            "price": 4000,
-            "image": "../../assets/jeans.jpg",
-            "category": Category.jeans,
+            "name": "Camera",
+            "price": 32000,
+        
+            "image": "../../assets/camera1.jpg",
+            "category": Category.electronic,
             "qty": 0,
             "rating": 4
         

@@ -1,6 +1,9 @@
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-warning">
     <!-- <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.webp"> -->
+
+
+    <img class="img-fluid" src="../../assets/sc.png" style="width: 50px; height: 50px;">
     <a class="navbar-brand" href="#">InstaSmart</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -9,32 +12,40 @@
       <ul class="navbar-nav">
         
         <li class="nav-item active">
-            <a class="nav-link" routerLink='/apphome'>Home</a>
+            <!-- <a class="nav-link" routerLink='/apphome'>Home</a> -->
+            <a class="nav-link" routerLink='/apphome'><img class="img-fluid" src="../../assets/h23.png" style="width: 40px; height: 40px;"></a>
           </li>
 
         <li class="nav-item">
-          <a class="nav-link" routerLink='/products'>Products</a>
+          <!-- <a class="nav-link" routerLink='/products'>Products</a> -->
+          <a class="nav-link" routerLink='/products'><img class="img-fluid" src="../../assets/p.png" style="width: 40px; height: 40px;"></a>
         </li>
 
        
 
         <li class="nav-item">
-            <a class="nav-link" routerLink='/carts'>Carts</a>
+            <!-- <a class="nav-link" routerLink='/carts'>Carts</a> -->
+            <a class="nav-link" routerLink='/carts'><img class="img-fluid" src="../../assets/c1.png" style="width: 40px; height: 40px;"></a>
           </li>
 
         <li class="nav-item">
-            <a class="nav-link" routerLink='/about'>About Us</a>
+            <!-- <a class="nav-link" routerLink='/about'>About Us</a> -->
+            <a class="nav-link" routerLink='/about'><img class="img-fluid" src="../../assets/as.jpg" style="width: 40px; height: 40px;"></a>
         </li>
 
+
         <li class="nav-item">
-            <a class="nav-link" routerLink='/contact'>Contact Us</a>
+          
+            <!-- <a class="nav-link" routerLink='/contact'>Contact Us</a> -->
+            
+      <a class="nav-link" routerLink='/contact'><img class="img-fluid" src="../../assets/c2.png" style="width: 50px; height: 50px;"></a>
         </li>
 
           
           
       </ul>
 <!-- Search form  -->
-<form class="d-flex" style="margin-left: px;">
+<form class="d-flex" style="margin-left:20px;">
     <input
       type="search"
       class="form-control"
@@ -47,19 +58,39 @@
     
   </form> 
 
-  
+
+
+
+
+<!-- 
+
+  <ul class="navbar-nav ms-auto">
+    <li class="nav-item" *ngIf="isLoggedIn">
+      <a class="nav-link" routerLink="/login" style="font-style: italic; font-size: 25px; font-weight: bold;">Welcome {{username}}</a>
+    </li>
+
+    <li class="nav-item" *ngIf="!isLoggedIn">
+      <button class="btn btn-success" routerLink="/login">Login</button>
+      </li>
+  <li class="nav-item" *ngIf="isLoggedIn">
+  <button class="btn btn-danger" (click)="logOut()" >LogOut</button>
+  </li>
+  </ul>
+   -->
 
       <!-- login button  -->
       <ul class="navbar-nav ms-auto">
         <li class="nav-item" *ngIf="isLoggedIn">
-          <a class="nav-link" routerLink='/login' style="font-style: italic; font-size: 25px; font-weight: bold;">Welcome {{username}}</a>
+          <a class="nav-link" routerLink='/login' style="font-style: italic; color :black;font-size: 18px; font-weight: bold;margin-left: 70px;">Welcome {{username}}</a>
         </li>
 
+      
         <li class="nav-item" *ngIf="!isLoggedIn">
           <button id="but"class="btn btn-success" routerLink="/login">Login</button>
           </li>
+          <!-- <a><img class="img-fluid" src="../../assets/user.png" style="width: 40px; height: 40px;margin-left: 10px;"></a> -->
       <li class="nav-item" *ngIf="isLoggedIn">
-      <button class="btn btn-danger" (click)="logOut()" >LogOut</button>
+      <button style="margin-left: 250px;margin-top: 9px;" class="btn btn-danger" (click)="logOut()" >LogOut</button>
       </li>
       </ul>
     </div>

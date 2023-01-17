@@ -18,7 +18,7 @@ export const getCurrentProduct = createSelector(
       return {
         id:0,
         name:'',
-        category:Category.shirt,
+        category:Category.clothing,
         price:0,
         image:'',
         rating:1,

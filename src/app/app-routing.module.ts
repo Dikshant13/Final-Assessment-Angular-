@@ -6,25 +6,29 @@ import { AppnavComponent } from './appnav/appnav.component';
 import { CartComponent } from './carts/cart.component';
 import { ContactComponent } from './contact/contact.component';
 // import { ProductListComponent } from './products/product-list.component';
-import { AuthGuard } from './users/auth-guard.service';
-import { LoginComponent } from './users/login.component';
+
 import { ProductAddComponent } from './products/product-add.component';
 import { ProductListComponent } from './products/product-list.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
-
+import { AuthGuard } from './users/auth-guard.service';
+import { LoginComponent } from './users/login.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
 
 const routes: Routes = [
 
-{path:'',pathMatch:'full',component:ApphomeComponent},
+// {path:'',pathMatch:'full',component:ApphomeComponent},
+{path:'',pathMatch:'full',component:LoginComponent},
   // {
     // path:'appnav',component:AppnavComponent,
     
   // },
 
- 
+  {path:'login',component:LoginComponent},
+
   {
     path:'apphome',component:ApphomeComponent,
 
@@ -45,6 +49,13 @@ const routes: Routes = [
   },
   {
     path:'contact',component:ContactComponent,
+  },
+  // {
+  //   path:'footer',component:FooterComponent,
+  // }
+  {
+    path:'**',component:PagenotfoundComponent,
+    
   }
 ];
 

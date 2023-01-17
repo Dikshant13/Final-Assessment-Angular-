@@ -101,7 +101,8 @@ newProduct():IProduct{
 
        id:0,
       name:'',
-      category:Category.shirt,
+      
+      category:Category.clothing,
       price:0,
       image:'\\assets\\shirt.jpg',
       rating:0,

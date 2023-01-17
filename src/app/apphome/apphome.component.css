@@ -6,3 +6,8 @@ img{
 footer{
     height: 500px;
 }
+
+.carousel-caption{
+color: black;
+font-weight: bold;
+}

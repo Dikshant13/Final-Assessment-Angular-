@@ -19,8 +19,11 @@
       <br>
       
       <p style="font-weight: bold;background-color:lightcyan;height: 30px;"> Total Price - {{ total }} </p>
+      
+      <!-- checkout page  -->
       <div class="card-header">
-        <button class="btn btn-primary" (click)="calculate()">CHECKOUT</button>
+        <button style="margin-right: 30px;" class="btn btn-primary" (click)="calculate()">CHECKOUT</button>
+        <button class="btn btn-primary" routerLink='/products'>CONTINUE SHOPPING</button>
     </div>
 <!-- 
     <div class="card-header">
@@ -33,15 +36,16 @@
       <tr>
         <th scope="col">NAME</th>
         <th scope="col">IMAGE</th>
-        <!-- <th scope="col">QUANTITY</th> -->
+        
         <th scope="col">PRICE</th>
+        <th scope="col">QUANTITY</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let pr of prot">
         <td *ngIf="pr.name">{{pr.name}}</td>
-        <td *ngIf="pr.image"><img [src]="pr.image" width="100px" height="100px"/></td>
-        <!-- <td *ngIf="pr.qty">{{pr.qty}}</td> -->
+        <td *ngIf="pr.image"><img [src]="pr.image" width="180px" height="180px"/></td>
+        <td *ngIf="pr.qty">{{pr.qty}}</td>
         <td *ngIf="pr.price">{{pr.price}}</td>
         
                 

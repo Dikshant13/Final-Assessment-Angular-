@@ -33,7 +33,7 @@ import { TransformDataPipe } from './transform-data.pipe';
 // import { StarIconComponent } from './star/star-icon.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
-
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +47,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CartComponent,
     CarouselComponent,
     // ProductListComponent,
-    
+    PagenotfoundComponent,
   
     
   

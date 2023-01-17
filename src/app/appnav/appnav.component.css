@@ -1,6 +1,6 @@
 .navbar-brand{
     font-size: 25px;
-    color:red ;
+    color:black ;
     font-weight: bold;
 }
 .navbar-brand a:hover{
@@ -11,5 +11,14 @@
 }
 
 #but{
-    margin-left: 350px;
+    margin-left: 320px;
 }
+
+/* ============== */
+
+
+.navbar{
+    height: 60px;
+}
+
+

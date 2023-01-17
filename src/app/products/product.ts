@@ -1,9 +1,9 @@
 export enum Category{
-    jeans='jeans',
-    grocery='grocery',
-    top='top',
-    shirt='shirt',
-    food='food'
+    clothing='Clothing',
+    electronic='Electronic',
+    food='Food',
+    // shirt='shirt',
+    // food='food'
 }
 export interface IProduct{
 
@@ -14,5 +14,4 @@ export interface IProduct{
     image:string;
     rating:number;
     qty:number;
-
 }

@@ -25,6 +25,7 @@ filteredProducts:IProduct[]=[];
 selectedProduct!:IProduct | null;
 filterValue!:string;
 href:string='';
+showProductCode: boolean = true;
 
 //******************** declared below are observables for which we will use async pipe in template , no sub/unsub*/
 products$!:Observable<IProduct[]>;
@@ -124,6 +125,11 @@ this.store.dispatch(ProductActions.setCurrentProduct({currentProductId:product.i
     console.log('--added---to---dispatch')
    }
 
+   
+
+   toggleShowProductCode() {
+    this.showProductCode = !this.showProductCode;
+   }
 
   //  code for alert message when we click on add to cart button 
    public isVisible: boolean = false;
@@ -133,6 +139,6 @@ this.store.dispatch(ProductActions.setCurrentProduct({currentProductId:product.i
       return;
     } 
     this.isVisible = true;
-    setTimeout(()=> this.isVisible = false,2500)
+    setTimeout(()=> this.isVisible = false,1500)
   }
 }
