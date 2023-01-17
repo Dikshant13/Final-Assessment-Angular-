@@ -27,13 +27,13 @@
                     <th scope="col">RATING</th>
                     <th scope="col">QUANTITY</th>
                     <th scope="col"></th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
+                    <th  *ngIf="isAdmin" scope="col"></th>
+                    <th  *ngIf="isAdmin" scope="col"></th>
                     
                   </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let product of filteredProducts">
+                    <tr *ngFor="let product of filteredProducts" (click)="onSelect(product)">
                     
                         <td>{{product.id}}</td>
                         <td (click)="productSelected(product)">{{product.name | uppercase}}
@@ -45,17 +45,17 @@
                         <td><app-star-icon [rating]='product.rating' (ratingClicked)="onRatingClicked($event)"></app-star-icon></td>
                         <td><input type="number" min=0 value="0" [(ngModel)]="product.qty"/></td>
                         
-                        <td><button (click)="showAlert()" class="btn btn-primary" (click)="addToCart(product)" >ADD To Cart</button></td>
-                        <td><button class="btn btn-warning" (click)="(product)">EDIT</button></td>
-                        <td><button class="btn btn-danger" (click)="(product)">DELETE</button></td>
+                        <td ><button (click)="showAlert()" class="btn btn-primary" (click)="addToCart(product)" >ADD To Cart</button></td>
+                        <td  *ngIf="isAdmin"><button class="btn btn-warning" (click)="(product)">EDIT</button></td>
+                        <td  *ngIf="isAdmin"><button class="btn btn-danger" (click)="deleteProduct(product)">DELETE</button></td>
                       </tr>
                   
                 </tbody>
               </table>
               <!-- <input type="checkbox" (click)="newProduct()"> Add New Product </input> -->
-              <button class="btn btn-primary" (click)="newProduct()">Add New Product</button>
-              <button *ngIf="!showProductCode" style="margin-left: 30px;" class="btn" (click)="toggleShowProductCode()">Show Product Code</button>
-              <button *ngIf="showProductCode" style="margin-left: 30px;" class="btn" (click)="toggleShowProductCode()">Hide Product Code</button>
+              <button    *ngIf="isAdmin" class="btn btn-primary" (click)="newProduct()">Add New Product</button>
+              <button *ngIf="isAdmin && !showProductCode" style="margin-left: 30px;" class="btn" (click)="toggleShowProductCode()">Show Product Code</button>
+              <button *ngIf="isAdmin && showProductCode" style="margin-left: 30px;" class="btn" (click)="toggleShowProductCode()">Hide Product Code</button>
         </div>
       </div>
       
@@ -70,6 +70,8 @@
 
 
       <!-- ------------- -->
+ 
+
       <router-outlet></router-outlet>
 </body>
 </html>

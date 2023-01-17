@@ -16,7 +16,7 @@ import { State } from "../state/products/product.state";
   styleUrls: ['./product-add.component.css']
 })
 export class ProductAddComponent implements OnInit ,OnDestroy {
-  pageTitle='Edit Product';
+  pageTitle='Add Product';
   errorMessage='';
   product$!: Observable<IProduct | null | undefined  >;
 
@@ -200,6 +200,7 @@ console.log('value in form changes')
   }
 
   deleteProduct(prod:IProduct):void{
+    console.log('----delete---');
     if(prod && prod.id){
 
       if(confirm(`Are you sure you want to delete ${prod.name} details`)){

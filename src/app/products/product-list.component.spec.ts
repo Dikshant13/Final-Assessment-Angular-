@@ -32,7 +32,7 @@ describe('ProductListComponent', () => {
   it('should print show',()=>{
     const rootEle:DebugElement = fixture.debugElement;
     
-    const btn =rootEle.query(By.css('.btn2'));
+    const btn =rootEle.query(By.css('.btn1'));
 
     const btnElement:HTMLElement= btn.nativeElement;
 

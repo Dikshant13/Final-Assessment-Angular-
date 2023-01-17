@@ -8,12 +8,38 @@ import * as ProductActions from '../state/products/product.actions'
 import { IProduct } from "./product";
 import { State } from "../state/products/product.state";
 import { CartService } from "../shared/cartService";
-import { state } from "@angular/animations";
-
+import { AuthService } from "../users/authservice";  
+// import { state } from "@angular/animations";
+import { state, style, transition, animate, trigger } from '@angular/animations';
 @Component({
   selector: 'products-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  styleUrls: ['./product-list.component.css'],
+
+
+
+
+  animations: [
+    trigger('enlarge', [
+       state('start', style({
+          height: '150px'
+       })),
+       state('end', style({
+          height: '250px'
+       })),
+       transition('start => end', [
+          animate('1s 2s')
+       ]),
+       transition('end => start', [
+          animate('1s 2s')
+       ])
+    ])
+ ]
+
+
+
+
+
 })
 export class ProductListComponent implements OnInit ,OnDestroy {
 errorMessage:string='';
@@ -25,7 +51,9 @@ filteredProducts:IProduct[]=[];
 selectedProduct!:IProduct | null;
 filterValue!:string;
 href:string='';
+isAdmin: boolean= false;
 showProductCode: boolean = true;
+// --- 
 
 //******************** declared below are observables for which we will use async pipe in template , no sub/unsub*/
 products$!:Observable<IProduct[]>;
@@ -37,12 +65,14 @@ dataReceived=this.productService.getProducts();
 obsProducts$!:Observable<IProduct[]>;
 @Output() OnProductSelection:EventEmitter<IProduct>=new EventEmitter<IProduct>();
 
-  constructor(private productService:ProductService, private cartService: CartService,
+  constructor(private productService:ProductService, private cartService: CartService, private authService: AuthService,
     private router:Router,private store:Store<State>){ }
 
 
   ngOnInit(): void {
     this.href=this.router.url;
+    this.isAdmin = this.authService.currentUser.isAdmin;
+    console.log(this.authService.currentUser, '--currentUser', this.isAdmin);
     // console.log(this.href);
     // //sub object is initialized
     //    this.obsProducts$=this.productService.getProducts();
@@ -98,6 +128,8 @@ obsProducts$!:Observable<IProduct[]>;
 
  onSelect(p:IProduct){
   this.OnProductSelection.emit(p);
+  this.store.dispatch(ProductActions.initializeCurrentProduct());
+  // this.router.navigate([this.href,'products']);
  }
 
 newProduct():void{
@@ -141,4 +173,31 @@ this.store.dispatch(ProductActions.setCurrentProduct({currentProductId:product.i
     this.isVisible = true;
     setTimeout(()=> this.isVisible = false,1500)
   }
+
+
+  
+
+  deleteProduct(prod:IProduct):void{
+    if(prod && prod.id){
+
+      if(confirm(`Are you sure you want to delete ${prod.name} details`)){
+
+
+        this.store.dispatch(ProductActions.deleteProduct({ productId: prod.id }));
+
+        // this.productService.deleteProduct(prod.id).subscribe(
+        //   resp=>this.productService.changeSelectedProduct(null),
+        //   err=>this.errorMessage=err
+        // );
+      }
+      else{
+// No need to delete, it was never saved
+this.store.dispatch(ProductActions.clearCurrentProduct());
+
+     // this.productService.changeSelectedProduct(null)
+      }
+    }
+
+  }
+
 }

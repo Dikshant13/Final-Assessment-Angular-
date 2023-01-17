@@ -10,10 +10,6 @@ import { Category, IProduct } from "src/app/products/product";
 
 export class InMemoryEventDbService implements InMemoryDbService{
     createDb(){
-        
-
-        
-
         const products:IProduct[]=[{
             "id": 1,
             "name": "Mobile",
@@ -117,11 +113,6 @@ export class InMemoryEventDbService implements InMemoryDbService{
             "rating": 4
         
           }];
-
-        
-
-        
-
         return {products};
     }
 

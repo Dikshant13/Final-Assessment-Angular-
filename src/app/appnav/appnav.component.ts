@@ -40,7 +40,8 @@ constructor(private router:Router,private authservice:AuthService){}
 
   logOut():void{
     this.authservice.logOut();
-    this.router.navigate(['/about']);
+    this.isLoggedIn;
+    this.router.navigate(['/apphome']);
   }
 
 }

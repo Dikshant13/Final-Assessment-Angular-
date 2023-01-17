@@ -7,13 +7,17 @@ import { User } from "./user";
 export class AuthService{
 
 
-    currentUser!:User |null;
+    currentUser:User = {
+        username: "",
+        password: "",
+        isAdmin: false
+    } ;
     redirectToUrl!:string;
 
     constructor(){}
 
     isLoggedIn():boolean{
-        return !!this.currentUser;
+        return this.currentUser.username ? true : false ;
     }
 
     users:string[]=['Dikshant','Labhane']
@@ -26,7 +30,7 @@ export class AuthService{
         password,
         isAdmin:true
      };
-    }else{
+    } else {
         this.currentUser={
             username,
             password,
@@ -39,6 +43,6 @@ export class AuthService{
     }
 
     logOut():void{
-        this.currentUser=null;
+        this.currentUser= {username: "", password: "", isAdmin: false};
     }
 }
