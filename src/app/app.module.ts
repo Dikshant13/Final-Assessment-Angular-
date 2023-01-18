@@ -16,7 +16,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CartComponent } from './carts/cart.component';
 import { LoginComponent } from './users/login.component';
 import { MaterialModule } from './material.module';
-import { CarouselComponent } from './carousel/carousel.component';
 // import { ProductListComponent } from './products/product-list.component';
 // import { StarIconComponent } from './star/star-icon.component';
 // import { ProductsComponent } from './products/products.component';
@@ -34,7 +33,7 @@ import { TransformDataPipe } from './transform-data.pipe';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +44,6 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     TransformDataPipe,
     LoginComponent,
     CartComponent,
-    CarouselComponent,
     // ProductListComponent,
     PagenotfoundComponent,
   
@@ -73,7 +71,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
    
     StoreDevtoolsModule.instrument(),
     HttpClientInMemoryWebApiModule.forRoot(InMemoryEventDbService),
-  
+    HttpClientTestingModule,
     
   
     ],

@@ -1,25 +1,45 @@
-.con {
-    margin-left: 400px;
+#contact-page {
+    background: rgb(253, 242, 120);
 }
-input[type=text], select, textarea {
-
-    width: 100%;
-
-    padding: 12px;
-
-    border: 2px solid red;
-
-    border-radius: 4px;
-
-    box-sizing: border-box;
-
-    margin-top: 6px;
-
-    margin-bottom: 16px;
-
-    resize: vertical
-
-  } 
-
-
+.contact-grid {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.contact-info {
+    background: white;
+    padding: 80px;
+    max-width: 300px;
+    text-align: center;
+  }
   
+.contact-info h2 {
+    font-size: 40px;
+}
+.form {
+    width: 500px;
+    padding:20px;
+    background:gray;
+    background-size: cover;
+    background-position: center;
+}
+  
+form {
+    display: flex;
+    flex-direction: column;
+}
+form input{
+    padding: 10px;
+    margin-bottom: 20px;
+}
+form textarea{
+    padding: 10px;
+    margin-bottom: 10px;
+}
+form button{
+    padding: 10px;
+    width: 25%;
+}
+.error{
+    color: red;
+}

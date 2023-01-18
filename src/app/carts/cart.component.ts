@@ -63,16 +63,12 @@ export class CartComponent implements OnInit,OnChanges{
 
    calculate():void{
     this.total=this.prot.reduce((sum, curr)=>{
-      return sum+(curr.price*curr.qty);
+      // return sum+(curr.price*curr.qt);
+      return+(curr.price)
     },0);
   }
 
 
-  
-
-
-  // animations 
-  
   
 }
 

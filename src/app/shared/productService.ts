@@ -106,7 +106,7 @@ newProduct():IProduct{
       price:0,
       image:'\\assets\\shirt.jpg',
       rating:0,
-      qty:0
+      // qty:0
 
   };
 

@@ -1,4 +1,9 @@
+
+
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { ApphomeComponent } from './apphome.component';
 
@@ -8,7 +13,10 @@ describe('ApphomeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ApphomeComponent ]
+      declarations: [ ApphomeComponent ],
+      imports: [
+        RouterTestingModule,HttpClientTestingModule,FormsModule,ReactiveFormsModule
+      ],
     })
     .compileComponents();
 
@@ -19,5 +27,12 @@ describe('ApphomeComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  //test case
+  it('should have as title `homepage`', () => {
+    const fixture = TestBed.createComponent(ApphomeComponent);
+    const app = fixture.componentInstance;
+    expect(app.title).toEqual('homepage');
   });
 });

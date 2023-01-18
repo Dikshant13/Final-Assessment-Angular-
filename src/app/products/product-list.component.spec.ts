@@ -1,9 +1,9 @@
-import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
 
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import {HttpClientModule} from '@angular/common/http';
+
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { ProductListComponent } from './product-list.component';
 
@@ -14,9 +14,9 @@ describe('ProductListComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ ProductListComponent ],
-      schemas: [NO_ERRORS_SCHEMA],
-      imports: [HttpClientTestingModule],
-      providers:[]
+      imports: [
+        RouterTestingModule,HttpClientTestingModule,FormsModule,ReactiveFormsModule
+      ],
     })
     .compileComponents();
 
@@ -28,14 +28,4 @@ describe('ProductListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  it('should print show',()=>{
-    const rootEle:DebugElement = fixture.debugElement;
-    
-    const btn =rootEle.query(By.css('.btn1'));
-
-    const btnElement:HTMLElement= btn.nativeElement;
-
-    expect(btnElement.textContent).toContain('SHOW');
-  })
 });

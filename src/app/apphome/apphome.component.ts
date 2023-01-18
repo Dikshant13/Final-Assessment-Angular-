@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./apphome.component.css']
 })
 export class ApphomeComponent {
-
+title:string="homepage"
 }

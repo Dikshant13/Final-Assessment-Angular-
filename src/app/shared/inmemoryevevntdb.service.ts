@@ -16,7 +16,7 @@ export class InMemoryEventDbService implements InMemoryDbService{
             "price": 25000,
             "image": "../../assets/mobile1.jpeg",
             "category": Category.electronic,
-            "qty": 0,
+            // "qty": 0,
             "rating": 4
         
           },{
@@ -26,7 +26,7 @@ export class InMemoryEventDbService implements InMemoryDbService{
         
             "image": "../../assets/pizza.jpeg",
             "category": Category.food,
-            "qty": 0,
+            // "qty": 0,
             "rating": 3.5
         
           },{
@@ -36,7 +36,7 @@ export class InMemoryEventDbService implements InMemoryDbService{
         
             "image": "../../assets/jeans.jpg",
             "category": Category.clothing,
-            "qty": 0,
+            // "qty": 0,
             "rating": 5
         
           },{
@@ -46,7 +46,7 @@ export class InMemoryEventDbService implements InMemoryDbService{
             
             "image": "../../assets/laptop2.jpg",
             "category": Category.electronic,
-            "qty": 0,
+            // "qty": 0,
             "rating": 3
         
           },{
@@ -56,7 +56,7 @@ export class InMemoryEventDbService implements InMemoryDbService{
         
             "image": "../../assets/jacket.jpg",
             "category": Category.clothing,
-            "qty": 0,
+            // "qty": 0,
             "rating": 3.5
         
           },{
@@ -66,7 +66,7 @@ export class InMemoryEventDbService implements InMemoryDbService{
         
             "image": "../../assets/lgtv.jpeg",
             "category": Category.electronic,
-            "qty": 0,
+            // "qty": 0,
             "rating": 3.5
         
           },{
@@ -76,7 +76,7 @@ export class InMemoryEventDbService implements InMemoryDbService{
         
             "image": "../../assets/shirt.jpg",
             "category": Category.clothing,
-            "qty": 0,
+            // "qty": 0,
             "rating": 5
         
           },{
@@ -86,7 +86,7 @@ export class InMemoryEventDbService implements InMemoryDbService{
             
             "image": "../../assets/burger.jpeg",
             "category": Category.food,
-            "qty": 0,
+            // "qty": 0,
             "rating": 4
         
           },
@@ -97,7 +97,7 @@ export class InMemoryEventDbService implements InMemoryDbService{
             
             "image": "../../assets/tshirt.jpg",
             "category": Category.clothing,
-            "qty": 0,
+            // "qty": 0,
             "rating": 4
         
           },
@@ -108,7 +108,7 @@ export class InMemoryEventDbService implements InMemoryDbService{
         
             "image": "../../assets/camera1.jpg",
             "category": Category.electronic,
-            "qty": 0,
+            // "qty": 0,
             "rating": 4
         
           }];

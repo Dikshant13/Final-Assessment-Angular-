@@ -16,9 +16,6 @@ import { state, style, transition, animate, trigger } from '@angular/animations'
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css'],
 
-
-
-
   animations: [
     trigger('enlarge', [
        state('start', style({
@@ -36,10 +33,6 @@ import { state, style, transition, animate, trigger } from '@angular/animations'
     ])
  ]
 
-
-
-
-
 })
 export class ProductListComponent implements OnInit ,OnDestroy {
 errorMessage:string='';
@@ -53,6 +46,7 @@ filterValue!:string;
 href:string='';
 isAdmin: boolean= false;
 showProductCode: boolean = true;
+c!:string;
 // --- 
 
 //******************** declared below are observables for which we will use async pipe in template , no sub/unsub*/
@@ -64,6 +58,7 @@ errorMessage$!: Observable<string>;
 dataReceived=this.productService.getProducts();
 obsProducts$!:Observable<IProduct[]>;
 @Output() OnProductSelection:EventEmitter<IProduct>=new EventEmitter<IProduct>();
+  errMssg: any;
 
   constructor(private productService:ProductService, private cartService: CartService, private authService: AuthService,
     private router:Router,private store:Store<State>){ }
@@ -72,38 +67,23 @@ obsProducts$!:Observable<IProduct[]>;
   ngOnInit(): void {
     this.href=this.router.url;
     this.isAdmin = this.authService.currentUser.isAdmin;
-    console.log(this.authService.currentUser, '--currentUser', this.isAdmin);
-    // console.log(this.href);
-    // //sub object is initialized
-    //    this.obsProducts$=this.productService.getProducts();
-    //    /*.subscribe(
-    //      (response)=>{
-
-    //      console.log(response);
-    //      this.products=response;
-    //      this.filteredProducts = this.products;
-
-    //    },
-    //    err=>{this.errorMessage=err;
-    //     console.log(err);
-    //    }
-    //    );*/
-
-      //  console.log(this.selectedProduct);
-      //  this.productService.selectedProductChanges$.
-      //  subscribe(currentProduct=>{this.selectedProduct=currentProduct;
-      // });
+  
    // Do NOT subscribe here because it uses an async pipe
     // This gets the initial values until the load is complete.
     this.products$ = this.store.select(getProducts);
-    this.products$.subscribe(resp=>this.filteredProducts=resp);
+    this.products$.subscribe(
+      (resp) => {
+        this.products = resp;
+         this.filteredProducts=resp;
+        });
     // Do NOT subscribe here because it uses an async pipe
     this.errorMessage$ = this.store.select(getError);
 
     this.store.dispatch(ProductActions.loadProducts());
 
     // Do NOT subscribe here because it uses an async pipe
-    this.selectedProduct$ = this.store.select(getCurrentProduct);
+    this.selectedProduct$ = this.store.select(getCurrentProduct); 
+    this.filteredProducts= this.products;
 
      }
 
@@ -111,16 +91,16 @@ obsProducts$!:Observable<IProduct[]>;
        //this.sub.unsubscribe();
   }
 
+  filterData(val:string){
+      val = val ? val.toLocaleLowerCase() : '';
+      console.log('--inside--filter--', this.products);
+    let data = this.products.filter((p:IProduct) => {
 
-
-   filterData(val:string){
-
-
-
-
-    this.filteredProducts=this.products.filter((p)=>p.category===val);
+      return (p.name.toLocaleLowerCase()).indexOf(val) > -1;
+    });
+    this.filteredProducts = data;
+    console.log(data.length, 'data');
   }
-
 
   onRatingClicked(msg:string):void{
     this.pageTitle='My Angular App ' +msg;
@@ -133,7 +113,6 @@ obsProducts$!:Observable<IProduct[]>;
  }
 
 newProduct():void{
-   console.log('in new product');
 
   // this.productService.changeSelectedProduct(this.productService.newProduct());
   // console.log('back to newProduct from service ');
@@ -148,16 +127,9 @@ this.store.dispatch(ProductActions.setCurrentProduct({currentProductId:product.i
     this.productService.getProductById(id).subscribe(resp=>this.prod=resp);
     return this.prod;
   }
-
-
-
   addToCart(product: IProduct):void{
-    console.log( product,'--inside--add--to--cart');
     this.cartService.addToCart(product);
-    console.log('--added---to---dispatch')
    }
-
-   
 
    toggleShowProductCode() {
     this.showProductCode = !this.showProductCode;
@@ -174,9 +146,6 @@ this.store.dispatch(ProductActions.setCurrentProduct({currentProductId:product.i
     setTimeout(()=> this.isVisible = false,1500)
   }
 
-
-  
-
   deleteProduct(prod:IProduct):void{
     if(prod && prod.id){
 
@@ -185,19 +154,21 @@ this.store.dispatch(ProductActions.setCurrentProduct({currentProductId:product.i
 
         this.store.dispatch(ProductActions.deleteProduct({ productId: prod.id }));
 
-        // this.productService.deleteProduct(prod.id).subscribe(
-        //   resp=>this.productService.changeSelectedProduct(null),
-        //   err=>this.errorMessage=err
-        // );
+       
       }
       else{
-// No need to delete, it was never saved
 this.store.dispatch(ProductActions.clearCurrentProduct());
 
-     // this.productService.changeSelectedProduct(null)
+    
       }
     }
+  }
 
+  prodUpdate(p:IProduct){
+    this.productService.updateProduct(p).subscribe(
+      (resp)=>this.productService.changeSelectedProduct(p),
+      err=>this.errMssg=err);
+    this.router.navigate(['editProduct']);
   }
 
 }
