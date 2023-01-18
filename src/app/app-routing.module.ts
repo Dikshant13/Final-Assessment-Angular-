@@ -13,7 +13,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 import { AuthGuard } from './users/auth-guard.service';
 import { LoginComponent } from './users/login.component';
-import { FooterComponent } from './footer/footer.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 
 
@@ -49,6 +49,9 @@ const routes: Routes = [
   },
   {
     path:'contact',component:ContactComponent,
+  },
+  {
+    path:'checkout',component:CheckoutComponent,
   },
   // {
   //   path:'footer',component:FooterComponent,

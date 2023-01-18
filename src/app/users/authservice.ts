@@ -20,7 +20,7 @@ export class AuthService{
         return this.currentUser.username ? true : false ;
     }
 
-    users:string[]=['Dikshant','Labhane']
+    users:string[]=['Dikshant','Gaurav','ayush']
 
     login(username:string,password:string):void{
 

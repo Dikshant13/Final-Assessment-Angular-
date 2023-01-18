@@ -29,6 +29,7 @@ describe('ProductAddComponent', () => {
     expect(component).toBeTruthy();
   });
 
+
   it('should have the product name',()=>{
     expect(fixture.debugElement.query(By.css('#name'))).toBeTruthy();
   });

@@ -8,6 +8,10 @@ footer{
 }
 
 .carousel-caption{
-color: black;
+color: white;
 font-weight: bold;
+}
+
+.h5 {
+    color: white;
 }

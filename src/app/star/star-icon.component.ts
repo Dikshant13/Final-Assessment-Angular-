@@ -24,8 +24,8 @@ export class StarIconComponent implements OnInit,OnChanges{
 
   onClick():void{
 
-    let msg =  document.querySelector('#p1')?.textContent ?? 'hello';
-    this.ratingClicked.emit(msg);
+  //   let msg =  document.querySelector('#p1')?.textContent ?? 'hello';
+  //   this.ratingClicked.emit(msg);
   }
 
 

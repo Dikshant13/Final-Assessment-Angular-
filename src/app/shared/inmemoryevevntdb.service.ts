@@ -14,7 +14,6 @@ export class InMemoryEventDbService implements InMemoryDbService{
             "id": 1,
             "name": "Mobile",
             "price": 25000,
-            
             "image": "../../assets/mobile1.jpeg",
             "category": Category.electronic,
             "qty": 0,
