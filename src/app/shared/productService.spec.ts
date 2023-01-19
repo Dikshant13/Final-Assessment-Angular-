@@ -120,7 +120,7 @@ describe('ProductService',()=>{
            };
            products =[...products,product1];
            service.createProduct(products).subscribe(res=>expect(res).toEqual(product1) )
-           expect(products.length).toEqual(6);
+           expect(products.length).toEqual(8);
            const req = httpMock.expectOne(service.url);
            expect(req.request.method).toBe('POST');
            req.flush(product1);

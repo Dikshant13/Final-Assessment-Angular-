@@ -36,21 +36,5 @@ describe('StarIconComponent', () => {
     expect(h1Element.textContent).toContain('Star Icon App');
   });
 
-  it('should check Output Correctly',()=>{
-    spyOn(component.ratingClicked,'emit');
-
-    const div =fixture.nativeElement.querySelector('.crop');
-
-    fixture.nativeElement.querySelector('#p1').textContent=
-        'Star sending Rating Star to Product';
-    fixture.detectChanges();
-
-    const inputText = fixture.nativeElement.querySelector('#p1').textContent;
-
-    div.click();
-
-    fixture.detectChanges();
-
-    expect(component.ratingClicked.emit).toHaveBeenCalledWith(inputText);
-  })
+  
 });

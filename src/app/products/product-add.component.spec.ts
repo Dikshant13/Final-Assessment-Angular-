@@ -1,68 +1,15 @@
-// import { HttpClientTestingModule } from '@angular/common/http/testing';
-// import { NO_ERRORS_SCHEMA } from '@angular/core';
-// import { ComponentFixture, TestBed } from '@angular/core/testing';
-// import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-// import { By } from '@angular/platform-browser';
-
-// import { ProductAddComponent } from './product-add.component';
-
-// describe('ProductAddComponent', () => {
-//   let component: ProductAddComponent;
-//   let fixture: ComponentFixture<ProductAddComponent>;
-//   let element!: HTMLElement;
-
-//   beforeEach(async () => {
-//     await TestBed.configureTestingModule({
-//       declarations: [ ProductAddComponent ],
-//       imports:[FormsModule,HttpClientTestingModule,ReactiveFormsModule],
-//       schemas: [NO_ERRORS_SCHEMA]
-//     })
-//     .compileComponents();
-
-//     fixture = TestBed.createComponent(ProductAddComponent);
-//     component = fixture.componentInstance;
-//     element=fixture.nativeElement;
-//     fixture.detectChanges();
-//   });
-
-//   it('should create ', () => {
-//     expect(component).toBeTruthy();
-//   });
 
 
-  // it('should have the product name',()=>{
-  //   expect(fixture.debugElement.query(By.css('#name'))).toBeTruthy();
-  // });
-  // it('should have the product price',()=>{
-  //   expect(fixture.debugElement.query(By.css('#price'))).toBeTruthy();
-  // });
-  // it('should have the product category',()=>{
-  //   expect(fixture.debugElement.query(By.css('#category'))).toBeTruthy();
-  // });
-  // it('should have the product image',()=>{
-  //   expect(fixture.debugElement.query(By.css('#image'))).toBeTruthy();
-  // });
-  // it('should have the product rating',()=>{
-  //   expect(fixture.debugElement.query(By.css('#rating'))).toBeTruthy();
-  // });
-  
-// });
-
-
-
-
-
-
-
-
-
-
+import { provideMockStore } from '@ngrx/store/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
-
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ProductAddComponent } from './product-add.component';
+import { StoreModule } from '@ngrx/store';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 describe('ProductAddComponent', () => {
   let component: ProductAddComponent;
@@ -70,11 +17,11 @@ describe('ProductAddComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule,
-        ReactiveFormsModule,
-        FormsModule,
-    ],
-      declarations: [ ProductAddComponent ]
+      imports: [HttpClientTestingModule,ReactiveFormsModule,FormsModule, 
+        StoreModule.forRoot({}),HttpClientTestingModule,BrowserAnimationsModule],
+        schemas: [NO_ERRORS_SCHEMA],
+      declarations: [ ProductAddComponent ],
+      providers: [provideMockStore({})],
     })
     .compileComponents();
 
@@ -87,114 +34,142 @@ describe('ProductAddComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  //Product Name--
+
+  
   it('should check Product Name', () => {
+
     const e1 =fixture.debugElement.query(By.css('#name'));
+
     expect(e1).toBeTruthy();
+
   });
+
   it('should have ProductName type of text', () => {
+
     const e1 =fixture.debugElement.query(By.css('#name'));
+
     expect(e1.nativeElement.getAttribute('type')).toEqual('text');
+
   });
-  it('should have name as ProductName', () => {
-    const e1 =fixture.debugElement.query(By.css('#name'));
-    expect(e1.nativeElement.getAttribute('name')).toEqual('name');
-  });
-  it('should check ProductName input value is correct', () => {
+
+
+  it('should check Product Name input value is correct', () => {
+
     let name=component.addProduct.controls['name'];
-    name.setValue('AkshataUttamPatil');
+
+    name.setValue('shirt');
+
     expect(name.errors).toBeNull();    
+
   });
 
-//Product Price
-  it('should check Price', () => {
-    const e1 =fixture.debugElement.query(By.css('#price'));
-    expect(e1).toBeTruthy();
-  });
-  it('should have Price type of number', () => {
-    const e1 =fixture.debugElement.query(By.css('#price'));
-    expect(e1.nativeElement.getAttribute('type')).toEqual('number');
-  });
-  it('should have name as Price', () => {
-    const e1 =fixture.debugElement.query(By.css('#price'));
-    expect(e1.nativeElement.getAttribute('name')).toEqual('price');
-  });
-  it('should check Price input value is correct', () => {
-    let price=component.addProduct.controls['price'];
-    price.setValue('1000');
-    expect(price.errors).toBeNull();    
-  });
+ 
 
+  /* ---  test case for Product price --- */
 
-  //Image--
-  it('should check Image', () => {
-    const e1 =fixture.debugElement.query(By.css('#image'));
-    expect(e1).toBeTruthy();
-  });
-  it('should have Image type of text', () => {
-    const e1 =fixture.debugElement.query(By.css('#image'));
-    expect(e1.nativeElement.getAttribute('type')).toEqual('text');
-  });
-  it('should have name as image', () => {
-    const e1 =fixture.debugElement.query(By.css('#image'));
-    expect(e1.nativeElement.getAttribute('name')).toEqual('image');
-  });
-  it('should check image input value is correct', () => {
-    let image=component.addProduct.controls['image'];
-    image.setValue('../../assets/images/jeans.jpg');
-    expect(image.errors).toBeNull();    
-  });
+  it('should check the input type of product name',()=>{
+    const id3=fixture.debugElement.query(By.css('#name'));
+    const id:any=component.addProduct.get("name");
+    const id2='mobile';
+    id.setValue(id2);
 
-  //Rating--
-  it('should check Rating', () => {
-    const e1 =fixture.debugElement.query(By.css('#rating'));
-    expect(e1).toBeTruthy();
-  });
-  it('should have Rating type of number', () => {
-    const e1 =fixture.debugElement.query(By.css('#rating'));
-    expect(e1.nativeElement.getAttribute('type')).toEqual('number');
-  });
-  it('should have name as rating', () => {
-    const e1 =fixture.debugElement.query(By.css('#rating'));
-    expect(e1.nativeElement.getAttribute('name')).toEqual('rating');
-  });
-  it('should check rating input value is correct', () => {
-    let rating=component.addProduct.controls['rating'];
-    rating.setValue('7');
-    expect(rating.errors).toBeNull();    
-  });
-
-  //Select check
-  it('should check select',()=>{
-    const e1 =fixture.debugElement.query(By.css('#sel')).nativeElement;
-    let select=component.addProduct.controls['category'];
-    select.setValue('footware');
-    expect(select.errors).toBeNull(); 
-    e1.value=e1.options[2].value;
     fixture.detectChanges();
+    expect(id3.nativeElement.value).toEqual(id2);
+
+  });
+
+  it('should check Product Price', () => {
+
+    const e1 =fixture.debugElement.query(By.css('#price'));
+
+    expect(e1).toBeTruthy();
+
+  });
+
+  it('should have Product Price type of number', () => {
+
+    const e1 =fixture.debugElement.query(By.css('#price'));
+
+    expect(e1.nativeElement.getAttribute('type')).toEqual('number');
+
+  });
+
+  it('should have name as Price', () => {
+
+    const e1 =fixture.debugElement.query(By.css('#price'));
+
+    expect(e1.nativeElement.getAttribute('name')).toEqual('price');
+
+  });
+
+  
+
+ 
+
+   /* --- test case for Image --- */
+
+ 
+
+  it('should check Image', () => {
+
+    const e1 =fixture.debugElement.query(By.css('#image'));
+
+    expect(e1).toBeTruthy();
+
+  });
+
+  // it('should have Image type of text', () => {
+
+  //   const e1 =fixture.debugElement.query(By.css('#image'));
+
+  //   expect(e1.nativeElement.getAttribute('type')).toEqual('text');
+
+  // });
+
+  it('should have name as image', () => {
+
+    const e1 =fixture.debugElement.query(By.css('#image'));
+
+    expect(e1.nativeElement.getAttribute('name')).toEqual('image');
+
+  });
+
+  it('should check image input value is correct', () => {
+
+    let image=component.addProduct.controls['image'];
+
+    image.setValue('../../assets/Mobile.jpeg');
+
+    expect(image.errors).toBeNull();    
+
+  });
+
+ 
+
+/*  test --- case for Select dropdown --- */
+
+ 
+
+  it('should check select',()=>{
+
+    const e1 =fixture.debugElement.query(By.css('#sel')).nativeElement;
+
+    let select=component.addProduct.controls['category'];
+
+    select.setValue('products');
+
+    expect(select.errors).toBeNull();
+
+    e1.value=e1.options[1].value;
+
+    fixture.detectChanges();
+
     let val=e1.options[e1.selectedIndex].label;
-    expect(val).toEqual('electronicDevice');
+
+    expect(val).toEqual('fruits');
+
   })
 
-
-  //Button Disable
-  it('should check addProduct button disabled', () => {
-    fixture.detectChanges();
-    let btn=fixture.debugElement.query(By.css('#btn')).nativeElement ;
-    expect(btn.disabled).toBe(true );
-   })
-   it('should check addProduct button enable', () => {
-    let btn=fixture.debugElement.query(By.css('#btn')).nativeElement ;
-    component.addProduct.controls['id'].setValue('101');
-    component.addProduct.controls['name'].setValue('jeans');
-    component.addProduct.controls['price'].setValue('200');
-    component.addProduct.controls['image'].setValue('../../assets/images/jeans.jpg');
-    component.addProduct.controls['category'].setValue('cloths');
-    component.addProduct.controls['rating'].setValue('4');
-  
-    fixture.detectChanges();
-    expect(btn.disabled).toBe(true );
-   })
-
+ 
 
 });

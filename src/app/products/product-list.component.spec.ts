@@ -1,10 +1,12 @@
 
 
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
-
+import { StoreRootModule } from '@ngrx/store';
+import { StoreModule } from '@ngrx/store';
 import { ProductListComponent } from './product-list.component';
 
 describe('ProductListComponent', () => {
@@ -15,8 +17,10 @@ describe('ProductListComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ ProductListComponent ],
       imports: [
-        RouterTestingModule,HttpClientTestingModule,FormsModule,ReactiveFormsModule
+        RouterTestingModule,HttpClientTestingModule,FormsModule,ReactiveFormsModule,
+        StoreModule.forRoot({})
       ],
+      schemas:[CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
 

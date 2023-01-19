@@ -41,7 +41,7 @@
                         <!-- <td><app-star-icon [rating]='product.rating' (ratingClicked)="onRatingClicked($event)"></app-star-icon></td> -->
                         <!-- <td><input type="number" min=0 value="0" [(ngModel)]="product.qty"/></td> -->
                         
-                        <td ><button (click)="showAlert()" class="btn btn-primary" (click)="addToCart(product)" >ADD To Cart</button></td>
+                        <td *ngIf="!isAdmin"><button (click)="showAlert()" class="btn btn-primary" (click)="addToCart(product)" >ADD To Cart</button></td>
                         <td  *ngIf="isAdmin"><button class="btn btn-warning" (click)="(product)">EDIT</button></td>
                         <td  *ngIf="isAdmin"><button class="btn btn-danger" (click)="deleteProduct(product)">DELETE</button></td>
                       </tr>

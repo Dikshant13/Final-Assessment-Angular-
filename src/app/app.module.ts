@@ -34,6 +34,7 @@ import { TransformDataPipe } from './transform-data.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideMockStore } from '@ngrx/store/testing/testing';
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,6 +77,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
   
     ],
   providers: [],
+  // providers: [provideMockStore({})],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

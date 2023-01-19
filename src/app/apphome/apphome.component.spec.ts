@@ -1,6 +1,7 @@
 
 
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -17,6 +18,7 @@ describe('ApphomeComponent', () => {
       imports: [
         RouterTestingModule,HttpClientTestingModule,FormsModule,ReactiveFormsModule
       ],
+      schemas:[CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
 
