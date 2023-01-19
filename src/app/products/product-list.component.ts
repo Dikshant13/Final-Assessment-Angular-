@@ -121,7 +121,7 @@ newProduct():void{
 }
  productSelected(product:IProduct):void{
   //this.productService.changeSelectedProduct(product);
-this.store.dispatch(ProductActions.setCurrentProduct({currentProductId:product.id}));
+  this.store.dispatch(ProductActions.setCurrentProduct({currentProductId:product.id}));
 }
   getProductById(id:number):IProduct{
     this.productService.getProductById(id).subscribe(resp=>this.prod=resp);
@@ -164,11 +164,19 @@ this.store.dispatch(ProductActions.clearCurrentProduct());
     }
   }
 
-  prodUpdate(p:IProduct){
-    this.productService.updateProduct(p).subscribe(
-      (resp)=>this.productService.changeSelectedProduct(p),
-      err=>this.errMssg=err);
-    this.router.navigate(['editProduct']);
+
+
+
+
+
+  
+
+
+
+  updateProduct(p:IProduct):void{
+    this.productSelected(p);
+    // this.store.dispatch(ProductActions.initializeCurrentProduct());
+   this.router.navigate([this.href,'editProduct']);
   }
 
 }

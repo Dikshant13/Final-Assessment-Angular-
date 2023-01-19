@@ -29,10 +29,10 @@
                   </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let product of filteredProducts" (click)="onSelect(product)">
+                    <tr *ngFor="let product of filteredProducts" >
                     
                         <td>{{product.id}}</td>
-                        <td (click)="productSelected(product)">{{product.name | uppercase}}
+                        <td >{{product.name | uppercase}}
                             <span *ngIf="showProductCode">(2023)</span>
                         </td>
                         <td>{{product.price | currency:'INR'}}</td>
@@ -42,7 +42,7 @@
                         <!-- <td><input type="number" min=0 value="0" [(ngModel)]="product.qty"/></td> -->
                         
                         <td *ngIf="!isAdmin"><button (click)="showAlert()" class="btn btn-primary" (click)="addToCart(product)" >ADD To Cart</button></td>
-                        <td  *ngIf="isAdmin"><button class="btn btn-warning" (click)="(product)">EDIT</button></td>
+                        <td  *ngIf="isAdmin"><button class="btn btn-warning" (click)="updateProduct(product)" >EDIT</button></td>
                         <td  *ngIf="isAdmin"><button class="btn btn-danger" (click)="deleteProduct(product)">DELETE</button></td>
                       </tr>
                   

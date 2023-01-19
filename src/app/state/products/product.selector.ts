@@ -13,7 +13,7 @@ export const getCurrentProduct = createSelector(
   getProductFeatureState,
   getCurrentProductId,
   (state, currentProductId) => {
-
+    console.log(state, currentProductId, '----d---');
     if (currentProductId === 0) {
       return {
         id:0,

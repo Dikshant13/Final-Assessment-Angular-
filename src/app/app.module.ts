@@ -30,7 +30,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InMemoryEventDbService } from './shared/inmemoryevevntdb.service';
 import { TransformDataPipe } from './transform-data.pipe';
 // import { StarIconComponent } from './star/star-icon.component';
-
+import{EditProductComponent} from './products/edit-product.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
@@ -47,6 +47,7 @@ import { provideMockStore } from '@ngrx/store/testing/testing';
     CartComponent,
     // ProductListComponent,
     PagenotfoundComponent,
+    EditProductComponent,
   
     
   
