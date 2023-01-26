@@ -18,12 +18,12 @@
       </div>
       <br>
       
-      <p style="font-weight: bold;background-color:lightcyan;height: 30px;"> Total Price - {{ total }} </p>
+      <p  id="total" style="font-weight: bold;background-color:lightcyan;height: 30px;"> Total Price - {{ total }} </p>
       
       <!-- checkout page  -->
       <div class="card-header">
-        <button style="margin-right: 30px;" class="btn btn-primary" routerLink='/checkout' (click)="calculate()">CHECKOUT</button>
-        <button *ngIf="total > 0" class="btn btn-primary" routerLink='/products'>CONTINUE SHOPPING</button>
+        <button style="margin-right: 30px;" class="btn btn-primary" id="checkout" routerLink='/checkout' (click)="calculate()">CHECKOUT</button>
+        <button *ngIf="total > 0" class="btn btn-primary" id="continueshopping" routerLink='/products'>CONTINUE SHOPPING</button>
         
     </div>
 <!-- 

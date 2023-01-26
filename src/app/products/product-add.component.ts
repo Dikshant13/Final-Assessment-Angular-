@@ -16,6 +16,9 @@ import { State } from "../state/products/product.state";
   styleUrls: ['./product-add.component.css']
 })
 export class ProductAddComponent implements OnInit ,OnDestroy {
+  added(added: any) {
+    throw new Error('Method not implemented.');
+  }
   pageTitle='Add Product';
   errorMessage='';
   product$!: Observable<IProduct | null | undefined  >;

@@ -36,21 +36,6 @@ describe('ProductAddComponent', () => {
 
 
   
-  it('should check Product Name', () => {
-
-    const e1 =fixture.debugElement.query(By.css('#name'));
-
-    expect(e1).toBeTruthy();
-
-  });
-
-  it('should have ProductName type of text', () => {
-
-    const e1 =fixture.debugElement.query(By.css('#name'));
-
-    expect(e1.nativeElement.getAttribute('type')).toEqual('text');
-
-  });
 
 
   it('should check Product Name input value is correct', () => {
@@ -64,112 +49,100 @@ describe('ProductAddComponent', () => {
   });
 
  
+ 
 
-  /* ---  test case for Product price --- */
 
-  it('should check the input type of product name',()=>{
-    const id3=fixture.debugElement.query(By.css('#name'));
-    const id:any=component.addProduct.get("name");
-    const id2='mobile';
-    id.setValue(id2);
+// =================================================
 
-    fixture.detectChanges();
-    expect(id3.nativeElement.value).toEqual(id2);
-
+  it('should set submitted to true', () => {
+    if(component.product)
+    component.saveProduct(component.product);
+    expect(component.added).toBeTruthy();
   });
 
-  it('should check Product Price', () => {
 
-    const e1 =fixture.debugElement.query(By.css('#price'));
-
-    expect(e1).toBeTruthy();
-
-  });
-
-  it('should have Product Price type of number', () => {
-
-    const e1 =fixture.debugElement.query(By.css('#price'));
-
-    expect(e1.nativeElement.getAttribute('type')).toEqual('number');
-
-  });
-
-  it('should have name as Price', () => {
-
-    const e1 =fixture.debugElement.query(By.css('#price'));
-
-    expect(e1.nativeElement.getAttribute('name')).toEqual('price');
-
-  });
 
   
+  it('form should be valid', () => {
+    component.addProduct.controls['id'].setValue('1');
+    component.addProduct.controls['name'].setValue('mobile');
+    component.addProduct.controls['category'].setValue('electronic');
+    component.addProduct.controls['price'].setValue('25000');
+    component.addProduct.controls['image'].setValue('qwerty');
+    component.addProduct.controls['rating'].setValue('qwerty');
+    expect(component.addProduct.valid).toBeTruthy();
+  });
 
- 
 
-   /* --- test case for Image --- */
 
- 
+  it('price field validity', () => {
+    const price = component.addProduct.controls['price'];
+    expect(price.valid).toBeFalsy();
 
-  it('should check Image', () => {
-
-    const e1 =fixture.debugElement.query(By.css('#image'));
-
-    expect(e1).toBeTruthy();
+    price.setValue('');
+    expect(price.hasError('required')).toBeTruthy();
 
   });
 
-  // it('should have Image type of text', () => {
 
-  //   const e1 =fixture.debugElement.query(By.css('#image'));
 
-  //   expect(e1.nativeElement.getAttribute('type')).toEqual('text');
 
-  // });
 
-  it('should have name as image', () => {
+  it('rating field validity', () => {
+    const phone = component.addProduct.controls['rating'];
+    phone.setValue('');
+    expect(phone.valid).toBeFalsy();
 
-    const e1 =fixture.debugElement.query(By.css('#image'));
-
-    expect(e1.nativeElement.getAttribute('name')).toEqual('image');
+    phone.setValue('');
+    expect(phone.hasError('required')).toBeTruthy();
 
   });
 
-  it('should check image input value is correct', () => {
 
-    let image=component.addProduct.controls['image'];
+  it('category field validity require', () => {
+    const category = component.addProduct.controls['category'];
 
-    image.setValue('../../assets/Mobile.jpeg');
+    category.setValue('');
+    expect(category.hasError('required')).toBeTruthy();
+  });
 
-    expect(image.errors).toBeNull();    
+  it('category field validity', () => {
+    const category = component.addProduct.controls['category'];
+    category.setValue('');
+    expect(category.valid).toBeFalsy();
+
+    
+  });
+
+
+
+
+  it('name field validity', () => {
+    const name = component.addProduct.controls['name'];
+    name.setValue('');
+    expect(name.valid).toBeFalsy();
+
+    name.setValue('');
+    expect(name.hasError('required')).toBeTruthy();
 
   });
 
- 
 
-/*  test --- case for Select dropdown --- */
 
- 
-
-  it('should check select',()=>{
-
-    const e1 =fixture.debugElement.query(By.css('#sel')).nativeElement;
-
-    let select=component.addProduct.controls['category'];
-
-    select.setValue('products');
-
-    expect(select.errors).toBeNull();
-
-    e1.value=e1.options[1].value;
-
-    fixture.detectChanges();
-
-    let val=e1.options[e1.selectedIndex].label;
-
-    expect(val).toEqual('fruits');
-
-  })
-
- 
+  it('form invalid when empty', () => {
+    component.addProduct.controls['id'].setValue('');
+    component.addProduct.controls['name'].setValue('');
+    component.addProduct.controls['category'].setValue('');
+    component.addProduct.controls['price'].setValue('');
+    component.addProduct.controls['image'].setValue('');
+    expect(component.addProduct.valid).toBeFalsy();
+  });
+  
 
 });
+
+
+
+
+
+

@@ -5,6 +5,9 @@ import { User } from "./user";
     providedIn:'root'
 })
 export class AuthService{
+    getUsers(): any {
+        throw new Error("Method not implemented.");
+    }
 
 
     currentUser:User = {

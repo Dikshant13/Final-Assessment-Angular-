@@ -60,4 +60,14 @@ describe('LoginComponent', () => {
   });
 
 
+
+  
+  it("should have type text",()=>{
+    const el = fixture.debugElement.query(By.css('#username'));
+    expect(el).toBeTruthy();
+    expect(el.nativeElement.getAttribute('type')).toEqual('text');
+    expect(el.nativeElement.getAttribute('required'));
+
+  });
+  
 });

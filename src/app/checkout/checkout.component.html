@@ -31,7 +31,7 @@
 	<div class="card-details">
 		<p>Pay using Credit or Debit card</p>
 
-		<div class="card-number">
+		<div class="card-number" class="card">
 		<label required> Card Number </label>
 		<input
 			type="text"
@@ -39,25 +39,25 @@
 			placeholder="###-###-###"/>
 		</div>
 		<br />
-		<div class="date-number">
+		<div class="date-number" class="date">
 		<label> Expiry Date </label>
 		<input type="text" class="date-number-field"
 				placeholder="DD-MM-YY" />
 		</div>
 
-		<div class="cvv-number">
+		<div class="cvv-number" class="cvv">
 		<label> CVV number </label>
 		<input type="text" class="cvv-number-field"
 				placeholder="xxx" />
 		</div>
-		<div class="nameholder-number">
+		<div class="nameholder-number" class="name">
 		<label> Card Holder name </label>
 		<input
 			type="text"
 			class="card-name-field"
 			placeholder="Enter your Name"/>
 		</div>
-		<button  (click)="showAlert()" type="submit"
+		<button id="button" (click)="showAlert()" type="submit"
 				class="submit-now-btn">
 		submit
 		</button>

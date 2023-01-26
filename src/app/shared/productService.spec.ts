@@ -163,4 +163,42 @@ describe('ProductService',()=>{
               service.getProductById(1).subscribe(res=>{response=res;expect(response).toEqual(product1);});
              expect(fn).toHaveBeenCalled();
             });
+
+
+
+
+            
+   it('deletProduct () should delete  a product',()=>{
+    service.deleteProduct(6).subscribe(resp=>expect(resp).toEqual({}) )
+    const req = httpMock.expectOne(`${service.url}/${6}`);
+    expect(req.request.method).toBe('DELETE');
+
+    })
+
+
+
+
+
+
+
+    it('updateProduct () should update  a product and return updated product as data',()=>{
+      let product1 ={
+            "id": 3,
+            "name": "Jeans1",
+            "price": 1800,
+            "image": "../../assets/jeans.jpg",
+            "category": Category.clothing,
+            "rating": 5
+
+       };
+
+       service.updateProduct(product1).subscribe(resp=>expect(resp).toEqual(product1) )
+
+       const req = httpMock.expectOne(`${service.url}/${product1.id}`);
+       expect(req.request.method).toBe('PUT');
+       req.flush({product1});
+
+       })
+
+
 })

@@ -16,6 +16,9 @@ import { State } from "../state/products/product.state";
   styleUrls: ['./edit-product.component.css']
 })
 export class EditProductComponent implements OnInit ,OnDestroy {
+    added(added: any) {
+        throw new Error('Method not implemented.');
+    }
   pageTitle='Edit Product';
   errorMessage='';
   product$!: Observable<IProduct | null | undefined  >;

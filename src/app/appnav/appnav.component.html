@@ -13,24 +13,24 @@
         
         <li class="nav-item active">
             <!-- <a class="nav-link" routerLink='/apphome'>Home</a> -->
-            <a class="nav-link" routerLink='/apphome'><img class="img-fluid" src="../../assets/h23.png" style="width: 40px; height: 40px;"></a>
+            <a class="nav-link"  id="home" routerLink='/apphome'><img class="img-fluid" src="../../assets/h23.png" style="width: 40px; height: 40px;"></a>
           </li>
 
         <li class="nav-item">
           <!-- <a class="nav-link" routerLink='/products'>Products</a> -->
-          <a class="nav-link"  routerLink='/products'><img class="img-fluid" src="../../assets/p.png" style="width: 40px; height: 40px;"></a>
+          <a class="nav-link" id="Product" routerLink='/products'><img class="img-fluid" src="../../assets/p.png" style="width: 40px; height: 40px;"></a>
         </li>
         <!-- *ngIf="isLoggedIn" use if user doesnt not want to see items without login-->
        
 
         <li class="nav-item">
             <!-- <a class="nav-link" routerLink='/carts'>Carts</a> -->
-            <a class="nav-link" routerLink='/carts'><img class="img-fluid" src="../../assets/c1.png" style="width: 40px; height: 40px;"></a>
+            <a class="nav-link" id="carts" routerLink='/carts'><img class="img-fluid" src="../../assets/c1.png" style="width: 40px; height: 40px;"></a>
           </li>
 
         <li class="nav-item">
             <!-- <a class="nav-link" routerLink='/about'>About Us</a> -->
-            <a class="nav-link" routerLink='/about'><img class="img-fluid" src="../../assets/as.jpg" style="width: 40px; height: 40px;"></a>
+            <a class="nav-link" id="aboutus" routerLink='/about'><img class="img-fluid" src="../../assets/as.jpg" style="width: 40px; height: 40px;"></a>
         </li>
 
 
@@ -38,7 +38,7 @@
           
             <!-- <a class="nav-link" routerLink='/contact'>Contact Us</a> -->
             
-      <a class="nav-link" routerLink='/contact'><img class="img-fluid" src="../../assets/c2.png" style="width: 50px; height: 50px;"></a>
+      <a class="nav-link"id="contactus" routerLink='/contact'><img class="img-fluid" src="../../assets/c2.png" style="width: 50px; height: 50px;"></a>
         </li>
 
           
@@ -79,18 +79,18 @@
    -->
 
       <!-- login button  -->
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item" *ngIf="isLoggedIn">
+      <ul  class="navbar-nav ms-auto">
+        <li  class="nav-item" *ngIf="isLoggedIn">
           <a class="nav-link" routerLink='/login' style="font-style: italic; color :black;font-size: 18px; font-weight: bold;margin-left: 70px;">Welcome {{username}}</a>
         </li>
 
       
         <li class="nav-item" *ngIf="!isLoggedIn">
-          <button id="but"class="btn btn-success" routerLink="/login">Login</button>
+          <button  id="but" class="btn btn-success" routerLink="/login">Login</button>
           </li>
           <!-- <a><img class="img-fluid" src="../../assets/user.png" style="width: 40px; height: 40px;margin-left: 10px;"></a> -->
       <li class="nav-item" *ngIf="isLoggedIn">
-      <button style="margin-left: 250px;margin-top: 9px;" class="btn btn-danger" (click)="logOut()" >LogOut</button>
+      <button  style="margin-left: 250px;margin-top: 9px;" class="btn btn-danger" (click)="logOut()" >LogOut</button>
       </li>
       </ul>
     </div>

@@ -1,5 +1,6 @@
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 
 import { AboutComponent } from './about.component';
 
@@ -28,4 +29,6 @@ describe('AboutComponent', () => {
     const app = fixture.componentInstance;
     expect(app.title).toEqual('about us');
   });
+
+
 });
